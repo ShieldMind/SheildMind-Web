@@ -1,102 +1,127 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShieldMind | Zihnini Koru</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <title>ShieldMind - Zihnini Koru</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background-color: #0e1a2b;
-      color: #ffffff;
+      background-color: #0a0a0a;
+      color: #d6f0ff;
     }
     header {
-      background: #101f35;
-      padding: 40px 20px;
+      background-color: #000b1f;
+      padding: 20px;
       text-align: center;
-    }
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-      color: #66fcf1;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #c5c6c7;
-    }
-    .btn {
-      margin: 20px 10px;
-      padding: 12px 24px;
-      border: none;
-      background-color: #45a29e;
-      color: #0e1a2b;
+      font-size: 32px;
       font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
+      border-bottom: 2px solid #0088ff;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0;
+    }
+    nav a {
+      color: #66ccff;
+      text-decoration: none;
+      font-size: 18px;
     }
     section {
-      padding: 40px 20px;
-      max-width: 960px;
+      padding: 50px;
+      max-width: 900px;
       margin: auto;
     }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .feature {
-      background: #1f2833;
-      padding: 20px;
-      border-radius: 12px;
-      width: 250px;
+    .cta {
+      background-color: #021f3f;
+      padding: 40px;
       text-align: center;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .cta button {
+      background-color: #00aaff;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .form-container {
+      background-color: #101f33;
+      padding: 40px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #000;
+      border: 1px solid #66ccff;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
     }
     footer {
-      background: #0b0c10;
-      color: #777;
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
+      background-color: #000b1f;
+      border-top: 1px solid #0088ff;
+      color: #88c;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>ShieldMind</h1>
-    <p>Zihnini Koru, Ağını Güvende Tut.</p>
-    <button class="btn">Demo İzle</button>
-    <button class="btn">Erken Erişim</button>
+    🛡️ ShieldMind
+    <div style="font-size: 18px; font-weight: normal;">Zihnini Koru</div>
   </header>
 
-  <section>
-    <h2>Neden ShieldMind?</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>🛡️ Tak-Çalıştır Firewall</h3>
-        <p>Donanım tabanlı Raspberry Pi cihazıyla kolay ağ koruması.</p>
-      </div>
-      <div class="feature">
-        <h3>🧠 AI Destekli Tespit</h3>
-        <p>Akıllı tehdit algılama ve otomatik IP engelleme.</p>
-      </div>
-      <div class="feature">
-        <h3>📊 Web Panel</h3>
-        <p>Ağ trafiği analizi ve saldırı raporları tek ekranda.</p>
-      </div>
-    </div>
+  <nav>
+    <a href="#about">Hakkımızda</a>
+    <a href="#services">Hizmetler</a>
+    <a href="#contact">İletişim</a>
+    <a href="neuroshield.html">Demo</a>
+  </nav>
+
+  <section id="about">
+    <h2>Biz Kimiz?</h2>
+    <p>ShieldMind, siber güvenlik, yapay zeka destekli firewall sistemleri ve ileri düzey ağ koruma teknolojileri geliştiren yeni nesil bir teknoloji girişimidir.</p>
   </section>
 
-  <section>
-    <h2>Hakkımızda</h2>
-    <p>ShieldMind, solo bir geliştirici tarafından kurulmuş, herkes için erişilebilir siber güvenlik çözümleri sunmayı amaçlayan bir projedir. Misyonumuz, interneti herkes için daha güvenli hale getirmek.</p>
+  <section id="services">
+    <h2>Ne Sunuyoruz?</h2>
+    <ul>
+      <li>⚙️ AI Destekli Güvenlik Duvarı</li>
+      <li>🌐 Gerçek Zamanlı Ağ İzleme</li>
+      <li>🧠 Tehdit Algılama & Otomatik Yanıt</li>
+      <li>🔒 Kişisel ve Kurumsal Koruma</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Demo Ürünümüzü Test Et!</h2>
+    <p>NeuroShield ile ağınızı bir sonraki seviyeye taşıyın. Ürün sayfasına göz atın:</p>
+    <a href="neuroshield.html"><button>NeuroShield Demo</button></a>
+  </section>
+
+  <section class="form-container" id="contact">
+    <h2>İletişime Geç</h2>
+    <form action="https://formspree.io/f/xjkrjgwy" method="POST">
+      <input type="text" name="isim" placeholder="Adınız Soyadınız" required>
+      <input type="email" name="email" placeholder="E-posta adresiniz" required>
+      <textarea name="mesaj" placeholder="Mesajınız..." rows="5" required></textarea>
+      <button type="submit">Gönder</button>
+    </form>
   </section>
 
   <footer>
-    © 2025 ShieldMind. Tüm hakları saklıdır.
+    © 2025 ShieldMind | Güvenlik Seninle Başlar
   </footer>
 </body>
 </html>
