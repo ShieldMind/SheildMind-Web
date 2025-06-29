@@ -17,11 +17,12 @@ jobs:
       - name: Repo'yu klonla
         uses: actions/checkout@v3
 
-      - name: Rust'u kur
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+- name: Rust'ı kur
+  uses: actions-rs/toolchain@v1
+  with:
+    toolchain: stable
+    override: true
+
 
       - name: Derle
         run: cargo build --release
