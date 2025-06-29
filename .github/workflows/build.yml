@@ -47,11 +47,10 @@ jobs:
           zip -r NeuroShield-Linux.zip neuroshield
           mv NeuroShield-Linux.zip ${{ github.workspace }}
 
-      - name: Yayınla (Release)
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            NeuroShield-*.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Release
+            uses: softprops/action-gh-release@v1
+          with:
+         tag_name: ${{ github.ref_name }}
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
