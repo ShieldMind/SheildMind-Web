@@ -28,13 +28,10 @@ jobs:
           copy target\x86_64-pc-windows-msvc\release\neuroshield.exe dist\
           powershell Compress-Archive dist\* neuroshield-windows.zip
 
-      - name: Release
-  uses: softprops/action-gh-release@v1
-  with:
-    files: |
-      NeuroShield-Windows.zip
-      NeuroShield-Linux.zip
-      NeuroShield-macOS.zip
-    tag_name: ${{ github.ref_name }}
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Yayınla (Release)
+        uses: softprops/action-gh-release@v1
+        with:
+          files: neuroshield-windows.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
