@@ -17,41 +17,39 @@ jobs:
       - name: Repo'yu klonla
         uses: actions/checkout@v3
 
-- name: Rust'ı kur
-  uses: actions-rs/toolchain@v1
-  with:
-    toolchain: stable
-    override: true
-
+      - name: Rust'ı kur
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
 
       - name: Derle
         run: cargo build --release
 
-      - name: Paketle (ZIP)
+      - name: Paketle (macOS)
         if: matrix.os == 'macos-latest'
         run: |
           cd target/release
           zip -r NeuroShield-macOS.zip neuroshield
           mv NeuroShield-macOS.zip ${{ github.workspace }}
 
-      - name: Paketle (ZIP)
+      - name: Paketle (Windows)
         if: matrix.os == 'windows-latest'
         run: |
           cd target/release
           powershell Compress-Archive -Path neuroshield.exe -DestinationPath NeuroShield-Windows.zip
           move NeuroShield-Windows.zip ${{ github.workspace }}
 
-      - name: Paketle (ZIP)
+      - name: Paketle (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: |
           cd target/release
           zip -r NeuroShield-Linux.zip neuroshield
           mv NeuroShield-Linux.zip ${{ github.workspace }}
 
-        - name: Release
-            uses: softprops/action-gh-release@v1
-          with:
-         tag_name: ${{ github.ref_name }}
-      env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
