@@ -6,32 +6,34 @@ on:
       - 'v*'
 
 jobs:
-  build-windows:
+  build:
     runs-on: windows-latest
 
     steps:
-      - name: Repo'yu klonla
+      - name: Repo’yu klonla
         uses: actions/checkout@v3
 
-      - name: Rust'u kur
+      - name: Rust kurulumu
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: stable-x86_64-pc-windows-msvc
+          target: x86_64-pc-windows-msvc
           override: true
 
       - name: Derle (Release)
-        run: cargo build --release
+        run: cargo build --release --target x86_64-pc-windows-msvc
 
-      - name: ZIP'e paketle
+      - name: Zip paketle
         run: |
-          cd target/release
-          powershell Compress-Archive -Path neuroshield.exe -DestinationPath NeuroShield-Windows.zip
-          move NeuroShield-Windows.zip $env:GITHUB_WORKSPACE
+          mkdir dist
+          copy target\x86_64-pc-windows-msvc\release\neuroshield.exe dist\
+          powershell Compress-Archive dist\* neuroshield-windows.zip
 
-      - name: Yayınla (GitHub Release)
+      - name: Yayınla (Release)
         uses: softprops/action-gh-release@v1
         with:
-          files: NeuroShield-Windows.zip
+          files: neuroshield-windows.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
