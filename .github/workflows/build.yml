@@ -1,20 +1,19 @@
-name: Build NeuroShield
+name: Build for Windows
 
 on:
   push:
     tags:
       - 'v*'
-  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest]
+    runs-on: windows-latest
 
     steps:
-      - name: Repo'yu klonla
+      - name: Repo’yu klonla
         uses: actions/checkout@v3
 
       - name: Rust'ı kur
@@ -23,29 +22,18 @@ jobs:
           toolchain: stable
           override: true
 
-      - name: Derle
-        run: cargo build --release
+      - name: Derle (Release)
+        run: cargo build --release --target x86_64-pc-windows-msvc
 
-      - name: Paketle (macOS)
-        if: matrix.os == 'macos-latest'
+      - name: Zip’e paketle
         run: |
-          cd target/release
-          zip -r NeuroShield-macOS.zip neuroshield
-          mv NeuroShield-macOS.zip ${{ github.workspace }}
+          mkdir dist
+          copy target\x86_64-pc-windows-msvc\release\neuroshield.exe dist\
+          powershell Compress-Archive dist\* neuroshield-windows.zip
 
-      - name: Paketle (Windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          cd target/release
-          powershell Compress-Archive -Path neuroshield.exe -DestinationPath NeuroShield-Windows.zip
-          move NeuroShield-Windows.zip ${{ github.workspace }}
-
-      - name: Release Oluştur
+      - name: Yayınla (GitHub Release)
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            NeuroShield-macOS.zip
-            NeuroShield-Windows.zip
-          tag_name: ${{ github.ref_name }}
+          files: neuroshield-windows.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
