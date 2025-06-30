@@ -1,4 +1,166 @@
-<h5>Biz ShieldMind ekibiyiz. Normalde Ekipler 6 ya da 7 kişi olur ama bizim ekibimiz 2 kişiden oluşmaktadır Ben XPTO ve ekip arkadaşım DPTO.
-</h5>
-<h5> XPTO ¯\_(ツ)_/¯
-  <body> 32px
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShieldMind | Geliştiriciler</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0b1220;
+      color: #cfd8dc;
+    }
+    header {
+      background: #152a44;
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 2px solid #1b3a6d;
+    }
+    header h1 {
+      margin: 0;
+      color: #1ec6ff;
+      font-weight: 700;
+    }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #1ec6ff;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #1ec6ff;
+      padding-bottom: 5px;
+    }
+    .team {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .member {
+      background: #1a2740;
+      border-radius: 8px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 15px #1ec6ff44;
+      transition: transform 0.3s ease;
+    }
+    .member:hover {
+      transform: translateY(-8px);
+    }
+    .member img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #1ec6ff;
+      margin-bottom: 12px;
+    }
+    .member h3 {
+      margin: 0 0 6px 0;
+      color: #64b5f6;
+    }
+    .member p {
+      font-size: 0.9rem;
+      color: #a0b8d7;
+      margin: 0;
+    }
+    .tech-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .tech-list li {
+      background: #1ec6ff22;
+      border: 1.5px solid #1ec6ff;
+      border-radius: 18px;
+      padding: 8px 15px;
+      color: #1ec6ff;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #455a7b;
+      border-top: 1px solid #152a44;
+    }
+    a {
+      color: #1ec6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media(max-width: 650px) {
+      .team {
+        flex-direction: column;
+        align-items: center;
+      }
+      .member {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ShieldMind Geliştiriciler</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Biz Kimiz?</h2>
+      <p>ShieldMind, siber güvenlik alanında yenilikçi çözümler geliştiren bir teknoloji ekibidir. Tutkumuz, sizi ve verilerinizi korumak için en gelişmiş teknolojileri kullanmaktır.</p>
+    </section>
+
+    <section>
+      <h2>Takımımız</h2>
+      <div class="team">
+        <div class="member">
+          <img src="https://i.pravatar.cc/110?img=12" alt="Ahmet Yılmaz" />
+          <h3>DTPO</h3>
+          <p>Kurucu & Yazılım Mühendisi</p>
+          <p><a href="mailto:ahmet@shieldmind.org">dtpo@shieldmind.org</a></p>
+        </div>
+        <div class="member">
+          <img src="https://i.pravatar.cc/110?img=7" alt="Elif Kaya" />
+          <h3>XTPO</h3>
+          <p>Front-end Geliştirici</p>
+          <p><a href="mailto:elif@shieldmind.org">xtpo@shieldmind.org</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Kullandığımız Teknolojiler</h2>
+      <ul class="tech-list">
+        <li>Rust</li>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Docker</li>
+        <li>CI/CD</li>
+        <li>macOS & Windows</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>İletişim</h2>
+      <p>Projelerimiz ve iş birlikleri için bize <a href="mailto:info@shieldmind.org">info@shieldmind.org</a> adresinden ulaşabilirsiniz.</p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 ShieldMind. Tüm hakları saklıdır.
+  </footer>
+</body>
+</html>
