@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -56,7 +56,10 @@
   <section>
     <h2>Mac için Kurulum</h2>
     <p>1. <strong>NeuroShield.zip</strong> dosyasını indirip çıkartın.</p>
-    <p>2. Karantina kaldırma scriptine çift tıklayın: <code>disable-quarantine.command</code></p>
+    <p>2. Karantina kaldırma scriptine çift tıklayın: <code>disable-quarantine.command</code>veya şu kodu terminalde çalıştırın:
+    #!/bin/bash
+xattr -dr com.apple.quarantine neuroshield.app
+</p>
     <p>3. Uygulamayı Masaüstüne taşıyın (Uygulamaya sağ tıklayıp 'Finder'da göster' seçeneğine tıklayın
       ve ardından uygulmayı masaüstüne taşıyın).</p>
     <p>4. Açarken sağ tıklayıp <strong>"Aç"</strong> deyin, güvenlik uyarısını geçin.</p>
