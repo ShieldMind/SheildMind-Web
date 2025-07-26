@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShieldMind - Cybersecurity Solutions</title>
   <style>
     body {
@@ -77,31 +77,9 @@
     <p>Discord: <a href="https://discord.gg/yourserver" target="_blank">Join Our Server</a></p>
   </section>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDeqR5bB0NBQrLhi7I6tUIUohKfn6KSVeM",
-      authDomain: "shieldmindauth.firebaseapp.com",
-      projectId: "shieldmindauth",
-      storageBucket: "shieldmindauth.firebasestorage.app",
-      messagingSenderId: "721778414730",
-      appId: "1:721778414730:web:64a8f5fd3a7850c9790973",
-      measurementId: "G-SL8S6H09WQ"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-
+  <script>
     window.goToService = function (targetPage) {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          window.location.href = targetPage;
-        } else {
-          window.location.href = "login.html";
-        }
-      });
+      window.location.href = targetPage;
     }
   </script>
 </body>
