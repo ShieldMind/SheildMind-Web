@@ -1,141 +1,122 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShieldMind | Güvenlik Seninle Başlar </title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShieldMind | Ana Sayfa</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f1115;
+      color: #e5e5e5;
       margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0a0a0a;
-      color: #d6f0ff;
+      padding: 0;
     }
     header {
-      background-color: #000b1f;
-      padding: 20px;
+      background-color: #11141a;
+      padding: 50px 20px;
       text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      border-bottom: 2px solid #0088ff;
+      border-bottom: 1px solid #222;
     }
-    nav {
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #00ffe0;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+      margin-top: 10px;
+    }
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .button-container {
+      margin-top: 40px;
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin: 20px 0;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-    nav a {
-      color: #66ccff;
+    .button {
+      background-color: #00ffe0;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
       text-decoration: none;
-      font-size: 18px;
+      font-weight: bold;
+    }
+    .button:hover {
+      background-color: #00ccb5;
     }
     section {
-      padding: 50px;
       max-width: 900px;
-      margin: auto;
-    }
-    .cta {
-      background-color: #021f3f;
-      padding: 40px;
-      text-align: center;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: #1b1d23;
       border-radius: 10px;
-      margin-top: 30px;
     }
-    .cta button {
-      background-color: #00aaff;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      font-size: 18px;
-      cursor: pointer;
+    section h2 {
+      color: #00ffe0;
+      margin-bottom: 15px;
     }
-    .form-container {
-      background-color: #101f33;
-      padding: 40px;
-      border-radius: 10px;
-      margin-top: 40px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      background-color: #000;
-      border: 1px solid #66ccff;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
+    section p, section a {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
     }
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #000b1f;
-      border-top: 1px solid #0088ff;
-      color: #88c;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: #666;
+      background-color: #0b0c0f;
+      border-top: 1px solid #222;
     }
   </style>
 </head>
 <body>
   <header>
-    🛡️ ShieldMind
-    <div style="font-size: 18px; font-weight: normal;">Zihnini Koru</div>
+    <h1>ShieldMind</h1>
+    <p>Siber Güvenlik Hizmetleri ve Web Koruma Çözümleri</p>
   </header>
 
-  <nav>
-     <a href="#setup">Kurulum</a>
-    <a href="#about">Hakkımızda</a>
-    <a href="#services">Hizmetler</a>
-    <a href="#contact">İletişim</a>
-    <a href="neuroshield.html">NeuroShield</a>
-  </nav>
+  <main>
+    <h2>Hoş Geldiniz</h2>
+    <p>Web sitenizi ve sistemlerinizi korumak için profesyonel çözümler sunuyoruz.</p>
 
-  <section id="about">
-    <h2>Biz Kimiz?</h2>
-    <p>ShieldMind, siber güvenlik, yapay zeka destekli firewall sistemleri ve ileri düzey ağ koruma teknolojileri geliştiren yeni nesil bir teknoloji girişimidir.</p>
+    <div class="button-container">
+      <a href="web-guvenlik.html" class="button">Web Güvenlik Hizmeti</a>
+      <a href="#" class="button">Discord Sunucu Koruma</a>
+    </div>
+  </main>
+
+  <section id="hakkimizda">
+    <h2>Hakkımızda</h2>
+    <p>
+      ShieldMind, genç ve dinamik bir ekip tarafından kurulmuş, Türkiye merkezli bir siber güvenlik girişimidir. 
+      Amacımız; bireyleri, küçük işletmeleri ve toplulukları dijital tehditlerden koruyarak daha güvenli bir internet ortamı oluşturmaktır.
+    </p>
   </section>
 
-  <section id="services">
-    <h2>Ne Sunuyoruz?</h2>
-    <ul>
-      <li>⚙️ AI Destekli Güvenlik Duvarı</li>
-      <li>🌐 Gerçek Zamanlı Ağ İzleme</li>
-      <li>🧠 Tehdit Algılama & Otomatik Yanıt</li>
-      <li>🔒 Kişisel ve Kurumsal Koruma</li>
-    </ul>
-  </section>
-
-  <section class="cta">
-    <h2>Ürünümüz ile ilgili daha fazla bilgi!</h2>
-    <p>NeuroShield ile güvenliğinizi bir sonraki seviyeye taşıyın. Ürün sayfasına göz atın:</p>
-    <a href="neuroshield.html"><button>NeuroShield V1.0</button></a>
-  </section>
-
-<section class="cta">
-  <h2>NeuroShield Uygulamasını İndir </h2>
-  <p>İşletim sisteminize uygun versiyonu aşağıdan indirerek NeuroShield'ı indirin.</p>
-  <a href="/downloads/neuroshield-mac.zip"><button>Mac İçin İndir (.zip)</button></a>
-  <a href="/downloads/neuroshield-windows.zip"><button>Windows İçin İndir (.zip)</button></a>
-</section>
-  
-  <section class="cta">
-  <h2>Kurulum Yardımı</h2>
-  <p>Uygulamayı nasıl kuracağınızı bilmiyor musunuz? Detaylı rehber için tıklayın:</p>
-  <a href="nasil-yuklenir.html"><button>📘 Nasıl Yüklenir?</button></a>
-</section>
-
-   <section class="early-access">
+  <section id="iletisim">
     <h2>İletişim</h2>
-    <form action="https://formspree.io/f/xjkrjgwy" method="POST">
-      <input type="text" name="isim" placeholder="Adınız Soyadınız" required>
-      <input type="email" name="email" placeholder="E-posta adresiniz" required>
-      <textarea name="not" placeholder="Şikayet,öneri..." rows="4"></textarea>
-      <button type="submit">Gönder</button>
-    </form>
+    <p>
+      Hizmetlerimiz hakkında bilgi almak veya destek talebinde bulunmak için bizimle iletişime geçebilirsiniz:
+    </p>
+    <p>
+       E-posta: <a href="mailto:info@shieldmind.org">shieldmindcompany@gmail.com</a><br>
+       Discord: <a href="#">discord.gg/shieldmind</a> (yakında)
+    </p>
   </section>
-  
+
   <footer>
-    © 2025 ShieldMind | Güvenlik Seninle Başlar
+    &copy; ©2025 ShieldMind | Tüm Hakları Saklıdır.
   </footer>
 </body>
 </html>
