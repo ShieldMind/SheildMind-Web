@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShieldMind Login</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDeqR5bB0NBQrLhi7I6tUIUohKfn6KSVeM",
+      authDomain: "shieldmindauth.firebaseapp.com",
+      projectId: "shieldmindauth",
+      storageBucket: "shieldmindauth.firebasestorage.app",
+      messagingSenderId: "721778414730",
+      appId: "1:721778414730:web:64a8f5fd3a7850c9790973",
+      measurementId: "G-SL8S6H09WQ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+
+    window.emailLogin = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("Login successful: " + userCredential.user.email);
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
+    }
+
+    window.googleLogin = function () {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          alert("Google login successful: " + result.user.email);
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
+    }
+  </script>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; background: #0f1115; color: #eee; }
+    input, button { margin: 10px; padding: 10px; }
+    button { background: #00ffe0; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>ShieldMind Login</h2>
+  <input type="email" id="email" placeholder="Email" /><br/>
+  <input type="password" id="password" placeholder="Password" /><br/>
+  <button onclick="emailLogin()">Login with Email</button><br/>
+  <button onclick="googleLogin()">Login with Google</button>
+</body>
+</html>
