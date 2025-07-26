@@ -1,122 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShieldMind | Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShieldMind - Cybersecurity Solutions</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       background-color: #0f1115;
-      color: #e5e5e5;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #11141a;
-      padding: 50px 20px;
+      background-color: #1a1d23;
+      padding: 20px;
       text-align: center;
-      border-bottom: 1px solid #222;
+      font-size: 2em;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
+    nav {
+      background-color: #1f232b;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
       color: #00ffe0;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #a0a0a0;
-      margin-top: 10px;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
     main {
+      padding: 50px;
       text-align: center;
-      padding: 60px 20px;
     }
-    .button-container {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .button {
+    button {
       background-color: #00ffe0;
       color: #000;
       border: none;
       padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 8px;
+      margin: 15px;
+      border-radius: 10px;
+      font-size: 1em;
       cursor: pointer;
-      transition: background-color 0.3s;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .button:hover {
-      background-color: #00ccb5;
     }
     section {
-      max-width: 900px;
+      max-width: 800px;
       margin: 60px auto;
-      padding: 20px;
-      background-color: #1b1d23;
-      border-radius: 10px;
+      text-align: left;
     }
-    section h2 {
+    h2 {
       color: #00ffe0;
-      margin-bottom: 15px;
-    }
-    section p, section a {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #ccc;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-      color: #666;
-      background-color: #0b0c0f;
-      border-top: 1px solid #222;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>ShieldMind</h1>
-    <p>Cyber Security Services & Web Protection Solutions</p>
+    ShieldMind
   </header>
-
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <main>
-    <h2>Welcome</h2>
-    <p>We offer professional solutions to protect your website and systems from threats.</p>
-
-    <div class="button-container">
-      <a href="web-security.html" class="button">Web Security Service</a>
-      <a href="#" class="button">Discord Server Protection</a>
-    </div>
+    <h1>Protecting the Web, One Step at a Time</h1>
+    <p>Our mission is to deliver expert-level cybersecurity services for modern platforms.</p>
+    <button onclick="goToService('webservice.html')">Web Security Service</button>
+    <button onclick="goToService('discordprotection.html')">Discord Server Protection</button>
   </main>
-
   <section id="about">
     <h2>About Us</h2>
-    <p>
-      ShieldMind is a Turkey-based cybersecurity startup founded by a young and dynamic team. 
-      Our mission is to protect individuals, small businesses, and communities from digital threats and build a safer internet.
-    </p>
+    <p>ShieldMind is a cybersecurity brand focused on defending digital platforms from evolving online threats. From web app protection to Discord server security, we ensure your digital assets stay safe.</p>
   </section>
-
   <section id="contact">
     <h2>Contact</h2>
-    <p>
-      For more information about our services or to request support, feel free to contact us:
-    </p>
-    <p>
-       Email: <a href="mailto:info@shieldmind.org">shieldmindcompany@gmail.com</a><br>
-       Discord: <a href="#">discord.gg/shieldmind</a> (coming soon)
-    </p>
+    <p>Email: support@shieldmind.org</p>
+    <p>Discord: <a href="https://discord.gg/yourserver" target="_blank">Join Our Server</a></p>
   </section>
 
-  <footer>
-    &copy; 2025 ShieldMind | shieldmind.org
-  </footer>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDeqR5bB0NBQrLhi7I6tUIUohKfn6KSVeM",
+      authDomain: "shieldmindauth.firebaseapp.com",
+      projectId: "shieldmindauth",
+      storageBucket: "shieldmindauth.firebasestorage.app",
+      messagingSenderId: "721778414730",
+      appId: "1:721778414730:web:64a8f5fd3a7850c9790973",
+      measurementId: "G-SL8S6H09WQ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    window.goToService = function (targetPage) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.href = targetPage;
+        } else {
+          window.location.href = "login.html";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
