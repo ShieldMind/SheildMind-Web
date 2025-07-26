@@ -1,1 +1,1 @@
-# shieldmind.co
+# shieldmind.org
