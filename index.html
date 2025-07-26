@@ -42,6 +42,15 @@
       border-radius: 10px;
       font-size: 1em;
       cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #00ccaa;
+    }
+    button.animating {
+      transform: scale(0.9);
+      opacity: 0.7;
     }
     section {
       max-width: 800px;
@@ -64,8 +73,8 @@
   <main>
     <h1>Protecting the Web, One Step at a Time</h1>
     <p>Our mission is to deliver expert-level cybersecurity services for modern platforms.</p>
-    <button onclick="goToService('webservice.html')">Web Security Service</button>
-    <button onclick="goToService('discordprotection.html')">Discord Server Protection</button>
+    <button onclick="goToService(this, 'webservice.html')">Web Security Service</button>
+    <button onclick="goToService(this, 'discordprotection.html')">Discord Server Protection</button>
   </main>
   <section id="about">
     <h2>About Us</h2>
@@ -78,8 +87,14 @@
   </section>
 
   <script>
-    window.goToService = function (targetPage) {
-      window.location.href = targetPage;
+    function goToService(button, targetPage) {
+      // Butona animasyon sınıfını ekle
+      button.classList.add('animating');
+
+      // 200ms sonra yönlendirme yap (animasyon süresiyle eşleşmeli)
+      setTimeout(() => {
+        window.location.href = targetPage;
+      }, 200);
     }
   </script>
 </body>
