@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShieldMind - Cybersecurity Solutions</title>
+  <title>ShieldMind - Cybersecurity for Discord</title>
   <style>
     body {
       background-color: #0f1115;
@@ -11,55 +11,163 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      line-height: 1.6;
     }
     header {
       background-color: #1a1d23;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
-      font-size: 2em;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #00ffe0;
     }
     nav {
       background-color: #1f232b;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
     }
     nav a {
       color: #00ffe0;
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1em;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
-      padding: 50px;
+      padding: 50px 20px;
       text-align: center;
     }
-    button {
+    .cta {
+      font-size: 1.2em;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .cta strong {
+      color: #00ffe0;
+    }
+    .btn {
       background-color: #00ffe0;
       color: #000;
       border: none;
       padding: 15px 30px;
-      margin: 15px;
       border-radius: 10px;
-      font-size: 1em;
+      font-size: 1.1em;
       cursor: pointer;
+      margin: 10px;
+    }
+    .btn:hover {
+      background-color: #00ccbb;
     }
     section {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 60px auto;
       text-align: left;
     }
     h2 {
       color: #00ffe0;
+      border-bottom: 2px solid #00ffe0;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .card {
+      background-color: #1a1d23;
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 300px;
+      box-shadow: 0 0 20px rgba(0,255,224,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card h3 {
+      color: #00ffe0;
+      margin-top: 0;
+    }
+    .footer {
+      background-color: #1a1d23;
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    This site is in progress to build!
+    ShieldMind - Discord Server Protection
   </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
+  </nav>
   <main>
-    <h1>Building time: Approx: 2 Days</h1>
-    <p>Our mission is to deliver expert-level cybersecurity services for modern platforms. So we are updating our site, and adding new security technologies. Thank you for choosing us!</p>
+    <p>Welcome to <strong>ShieldMind</strong> — your all-in-one cybersecurity solution designed specifically for Discord communities.</p>
+    <p class="cta">🛡️ <strong>Secure</strong> your community today! Your <strong>first server</strong> is protected <strong>free for 30 days</strong>. Then only <strong>$0.99/month</strong> per server!</p>
+    <button class="btn">Get Started</button>
+    <button class="btn">Join Our Discord</button>
   </main>
+
+  <section>
+    <h2>Why Choose ShieldMind?</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Advanced Threat Detection</h3>
+        <p>We scan and block phishing links, scam bots, and suspicious behavior before they can harm your server.</p>
+      </div>
+      <div class="card">
+        <h3>24/7 Monitoring</h3>
+        <p>Our systems monitor your Discord server around the clock so you can focus on your community.</p>
+      </div>
+      <div class="card">
+        <h3>Real-Time Alerts</h3>
+        <p>Instant notifications for critical events such as raids, spam attacks, or unauthorized access attempts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing Plans</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Free Trial</h3>
+        <p>✅ 1 Server<br>✅ Full Protection<br>✅ 30 Days Free</p>
+        <button class="btn">Start Free</button>
+      </div>
+      <div class="card">
+        <h3>Premium</h3>
+        <p>✅ $0.99 / month<br>✅ Per Server<br>✅ Priority Support</p>
+        <button class="btn">Subscribe Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact & Support</h2>
+    <p>If you need help or want to learn more, join our Discord or email us at <strong>support@shieldmind.org</strong>.</p>
+  </section>
+
+  <div class="footer">
+    &copy; 2025 ShieldMind. All rights reserved. | Built with ❤️ for community protection.
+  </div>
 </body>
 </html>
