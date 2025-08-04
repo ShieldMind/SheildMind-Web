@@ -33,24 +33,23 @@
       padding: 50px;
       text-align: center;
     }
-    button {
+    a.button {
+      display: inline-block;
       background-color: #00ffe0;
       color: #000;
-      border: none;
       padding: 15px 30px;
       margin: 15px;
       border-radius: 10px;
       font-size: 1em;
-      cursor: pointer;
-      transition: transform 150ms ease, opacity 150ms ease;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 150ms ease, opacity 150ms ease, background 150ms ease;
       user-select: none;
     }
-    button:hover {
+    a.button:hover {
       background-color: #00ccaa;
-    }
-    button.animating {
-      transform: scale(0.9);
-      opacity: 0.7;
+      transform: scale(0.95);
+      opacity: 0.85;
     }
     section {
       max-width: 800px;
@@ -60,7 +59,6 @@
     h2 {
       color: #00ffe0;
     }
-    /* Yeni download yazısı için stil */
     .download-info {
       margin: 40px 0 20px 0;
       font-size: 1.3em;
@@ -87,13 +85,12 @@
     <h1>Protecting the Web, One Step at a Time</h1>
     <p>Our mission is to deliver expert-level cybersecurity services for modern platforms.</p>
     
-    <button onclick="goToService(this, 'webservice.html')">Web Security Service</button>
-    <button onclick="goToService(this, 'discordprotection.html')">Discord Server Protection</button>
+    <a href="webservice.html" class="button">Web Security Service</a>
+    <a href="discordprotection.html" class="button">Discord Server Protection</a>
 
-    <!-- Yeni download info ve buton -->
     <div class="download-info">Download our newest product:</div>
     <div class="download-subinfo">MHealth Completely built for macOS</div>
-    <button onclick="downloadMHealth(this)">Download MHealth V1.1 (Beta)</button>
+    <a href="https://shieldmind.org/downloads/MHealth-V1.1.dmg" class="button">Download MHealth V1.1 (Beta)</a>
   </main>
   
   <section id="about">
@@ -106,27 +103,5 @@
     <p>Email: shieldmindcompany@gmail.com</p>
     <p>Discord: <a href="https://discord.gg/c8ZqSNay" target="_blank">Join Our Speacial Cyber Security Team Server (Discord)</a></p>
   </section>
-
-  <script>
-    function goToService(button, targetPage) {
-      button.classList.add('animating');
-      setTimeout(() => {
-        button.classList.remove('animating');
-        setTimeout(() => {
-          window.location.href = targetPage;
-        }, 150);
-      }, 150);
-    }
-
-    function downloadMHealth(button) {
-      button.classList.add('animating');
-      setTimeout(() => {
-        button.classList.remove('animating');
-        setTimeout(() => {
-          window.location.href = 'https://shieldmind.org/downloads/MHealth-V1.1.dmg';
-        }, 150);
-      }, 150);
-    }
-  </script>
 </body>
 </html>
