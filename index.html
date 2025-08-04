@@ -60,6 +60,19 @@
     h2 {
       color: #00ffe0;
     }
+    /* Yeni download yazısı için stil */
+    .download-info {
+      margin: 40px 0 20px 0;
+      font-size: 1.3em;
+      color: #00ffe0;
+      font-weight: 600;
+    }
+    .download-subinfo {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #55ffcc;
+      font-weight: 400;
+    }
   </style>
 </head>
 <body>
@@ -73,10 +86,16 @@
   <main>
     <h1>Protecting the Web, One Step at a Time</h1>
     <p>Our mission is to deliver expert-level cybersecurity services for modern platforms.</p>
+    
     <button onclick="goToService(this, 'webservice.html')">Web Security Service</button>
     <button onclick="goToService(this, 'discordprotection.html')">Discord Server Protection</button>
+
+    <!-- Yeni download info ve buton -->
+    <div class="download-info">Download our newest product:</div>
+    <div class="download-subinfo">MHealth Completely built for macOS</div>
     <button onclick="downloadMHealth(this)">Download MHealth V1.0</button>
   </main>
+  
   <section id="about">
     <h2>About Us</h2>
     <p>ShieldMind is a cybersecurity brand focused on defending digital platforms from evolving online threats. From web app protection to Discord server security, we ensure your digital assets stay safe.</p>
