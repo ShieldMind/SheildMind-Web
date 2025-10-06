@@ -4,110 +4,674 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShieldMind - Cybersecurity Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      background-color: #0f1115;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
+    :root {
+      --primary: #00ff99;
+      --secondary: #0088cc;
+      --accent: #ff6b6b;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --light: #f0f0f0;
+      --gray: #333;
+      --medium-gray: #555;
+      --light-gray: #777;
+    }
+    
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
     header {
-      background-color: #1a1d23;
-      padding: 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, var(--darker), var(--dark));
       text-align: center;
-      font-size: 2em;
+      padding: 0 20px;
+      position: relative;
+      overflow: hidden;
     }
-    nav {
-      background-color: #1f232b;
-      padding: 10px;
-      text-align: center;
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 136, 204, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+      z-index: 0;
     }
-    nav a {
-      color: #00ffe0;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+    
+    header h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 3s ease-in-out;
+      position: relative;
+      z-index: 1;
     }
-    main {
-      padding: 50px;
-      text-align: center;
-    }
-    a.button {
-      display: inline-block;
-      background-color: #00ffe0;
-      color: #000;
-      padding: 15px 30px;
-      margin: 15px;
-      border-radius: 10px;
-      font-size: 1em;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 150ms ease, opacity 150ms ease, background 150ms ease;
-      user-select: none;
-    }
-    a.button:hover {
-      background-color: #00ccaa;
-      transform: scale(0.95);
-      opacity: 0.85;
-    }
-    section {
+    
+    header p {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
       max-width: 800px;
-      margin: 60px auto;
-      text-align: left;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
     }
+    
+    .header-stats {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .stat {
+      text-align: center;
+      min-width: 120px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--light-gray);
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 15px 35px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
+      position: relative;
+      z-index: 1;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.3);
+    }
+    
+    .cta-button.secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-button.secondary:hover {
+      background: rgba(0, 255, 153, 0.1);
+    }
+    
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.95);
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    
+    nav li {
+      margin: 0 15px;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    nav a:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    section {
+      margin-bottom: 80px;
+      padding: 40px;
+      background: rgba(30, 30, 30, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+    
     h2 {
-      color: #00ffe0;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 15px;
     }
+    
+    h3 {
+      color: var(--secondary);
+      margin: 30px 0 20px;
+      font-size: 1.8rem;
+    }
+    
+    h4 {
+      color: var(--accent);
+      margin: 25px 0 15px;
+      font-size: 1.4rem;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    /* Cards for Services */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .card {
+      background: rgba(40, 40, 40, 0.8);
+      border-radius: 10px;
+      padding: 25px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--gray);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.2);
+    }
+    
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    /* Download Section */
+    .download-section {
+      background: rgba(40, 40, 40, 0.8);
+      border-radius: 10px;
+      padding: 40px;
+      margin: 40px 0;
+      text-align: center;
+      border-left: 4px solid var(--secondary);
+    }
+    
     .download-info {
-      margin: 40px 0 20px 0;
-      font-size: 1.3em;
-      color: #00ffe0;
+      margin: 20px 0 10px;
+      font-size: 1.5em;
+      color: var(--primary);
       font-weight: 600;
     }
+    
     .download-subinfo {
-      font-size: 1.1em;
-      margin-bottom: 20px;
+      font-size: 1.2em;
+      margin-bottom: 30px;
       color: #55ffcc;
       font-weight: 400;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--darker);
+      padding: 50px 20px 30px;
+      margin-top: 80px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    
+    .footer-section h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    
+    .footer-section li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-section a {
+      color: var(--light-gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray);
+      color: var(--light-gray);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+    @keyframes slideIn {
+      from {transform: translateY(30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+    
+    .animate {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      header p {
+        font-size: 1.2rem;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      nav li {
+        margin: 5px 0;
+      }
+      
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+      
+      section {
+        padding: 25px 20px;
+      }
+      
+      .header-stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+    
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .floating {
+      animation: float 5s ease-in-out infinite;
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      background: var(--gray);
+      border-radius: 10px;
+      margin: 30px 0;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 10px;
+      width: 0%;
+      transition: width 1s ease-in-out;
     }
   </style>
 </head>
 <body>
   <header>
-    ShieldMind
-  </header>
-  <nav>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <main>
-    <h1>Protecting the Web, One Step at a Time</h1>
-    <p>Our mission is to deliver expert-level cybersecurity services for modern platforms.</p>
+    <h1>ShieldMind</h1>
+    <p>Protecting the Web, One Step at a Time</p>
     
-    <a href="webservice.html" class="button">Web Security Service</a>
-    <a href="discordprotection.html" class="button">Discord Server Protection</a>
-    <a href="web.html" class="button">C++ Web Academy</a>
-
-
-    <div class="download-info">Download our newest product:</div>
-    <div class="download-subinfo">MHealth Completely built for macOS</div>
-    <a href="https://shieldmind.org/downloads/MHealth-V1.1.dmg" class="button">Download MHealth V1.1 (Beta)</a>
-
-    <div class="download-info">Download our firewall product:</div>
-    <div class="download-subinfo">Protects 24/7, also free forever!</div>
-    <a href="https://shieldmind.org/downloads/MHealth-V1.1.dmg" class="button">ShieldMind</a>
+    <div class="header-stats">
+      <div class="stat">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Protected Systems</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Security Monitoring</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Uptime Guarantee</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Security Experts</div>
+      </div>
+    </div>
+    
+    <div>
+      <a href="#services" class="cta-button">Our Services</a>
+      <a href="#downloads" class="cta-button secondary">Downloads</a>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <div class="logo">ShieldMind</div>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#downloads">Downloads</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>ShieldMind is a cybersecurity brand focused on defending digital platforms from evolving online threats. From web app protection to Discord server security, we ensure your digital assets stay safe.</p>
+      
+      <div class="card-container">
+        <div class="card">
+          <h3><i class="fas fa-shield-alt"></i> Our Mission</h3>
+          <p>To deliver expert-level cybersecurity services for modern platforms, protecting businesses and individuals from digital threats.</p>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-eye"></i> Our Vision</h3>
+          <p>A secure digital world where individuals and organizations can operate without fear of cyber threats.</p>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-users"></i> Our Team</h3>
+          <p>Composed of cybersecurity experts with years of experience in threat detection, prevention, and mitigation.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <p>We offer a comprehensive suite of cybersecurity solutions designed to protect your digital assets from evolving threats.</p>
+      
+      <div class="card-container">
+        <div class="card">
+          <h3><i class="fas fa-globe"></i> Web Security Service</h3>
+          <p>Comprehensive protection for your web applications against common vulnerabilities and attacks.</p>
+          <a href="webservice.html" class="cta-button" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fab fa-discord"></i> Discord Server Protection</h3>
+          <p>Specialized security solutions for Discord communities to prevent raids, spam, and malicious activities.</p>
+          <a href="discordprotection.html" class="cta-button" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-code"></i> C++ Web Academy</h3>
+          <p>Learn C++ programming from beginner to expert level with our comprehensive educational platform.</p>
+          <a href="web.html" class="cta-button" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Learn More</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Downloads Section -->
+    <section id="downloads">
+      <h2>Downloads</h2>
+      <p>Access our latest cybersecurity tools and applications to enhance your digital protection.</p>
+      
+      <div class="download-section">
+        <div class="download-info">Download our newest product:</div>
+        <div class="download-subinfo">MHealth Completely built for macOS</div>
+        <a href="https://shieldmind.org/downloads/MHealth-V1.1.dmg" class="cta-button floating">
+          <i class="fab fa-apple"></i> Download MHealth V1.1 (Beta)
+        </a>
+      </div>
+      
+      <div class="download-section">
+        <div class="download-info">Download our firewall product:</div>
+        <div class="download-subinfo">Protects 24/7, also free forever!</div>
+        <a href="https://shieldmind.org/downloads/MHealth-V1.1.dmg" class="cta-button floating">
+          <i class="fas fa-shield-alt"></i> ShieldMind Firewall
+        </a>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Get in touch with our cybersecurity experts for consultation, support, or to join our team.</p>
+      
+      <div class="card-container">
+        <div class="card">
+          <h3><i class="fas fa-envelope"></i> Email</h3>
+          <p>shieldmindcompany@gmail.com</p>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fab fa-discord"></i> Discord</h3>
+          <p>Join our Special Cyber Security Team Server</p>
+          <a href="https://discord.gg/c8ZqSNay" target="_blank" class="cta-button" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Join Server</a>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-users"></i> Join Our Team</h3>
+          <p>If you want to join our Cyber Security Team S.H.I.E.L.D, contact us via email. It will be a pride to see you in our team!</p>
+        </div>
+      </div>
+    </section>
   </main>
   
-  <section id="about">
-    <h2>About Us</h2>
-    <p>ShieldMind is a cybersecurity brand focused on defending digital platforms from evolving online threats. From web app protection to Discord server security, we ensure your digital assets stay safe.</p>
-  </section>
-  <section id="contact">
-    <h2>Contact</h2>
-    <h5>If you want to join our Cyber Security Team S.H.I.E.L.D, then you can contact us with the e-mail below. It will be an pride to see you in our team!</h5>
-    <p>Email: shieldmindcompany@gmail.com</p>
-    <p>Discord: <a href="https://discord.gg/c8ZqSNay" target="_blank">Join Our Speacial Cyber Security Team Server (Discord)</a></p>
-  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>ShieldMind</h3>
+        <p>Expert cybersecurity solutions for modern digital platforms. Protecting your assets from evolving online threats.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="webservice.html">Web Security</a></li>
+          <li><a href="discordprotection.html">Discord Protection</a></li>
+          <li><a href="web.html">C++ Academy</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 ShieldMind. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Progress Bar Animation
+    const updateProgressBar = () => {
+      const winHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset;
+      const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+      
+      document.getElementById('progressBar').style.width = Math.min(scrollPercent, 100) + '%';
+    };
+
+    // Element visibility animation
+    const checkVisibility = () => {
+      const sections = document.querySelectorAll("section");
+      const windowHeight = window.innerHeight;
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        
+        if (sectionTop < windowHeight - 100) {
+          section.classList.add("animate");
+        }
+      });
+    };
+
+    window.addEventListener('scroll', () => {
+      updateProgressBar();
+      checkVisibility();
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Initialize animations on page load
+    window.addEventListener("load", () => {
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section, index) => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+          section.classList.add("animate");
+        }
+      });
+      
+      updateProgressBar();
+    });
+  </script>
 </body>
 </html>
