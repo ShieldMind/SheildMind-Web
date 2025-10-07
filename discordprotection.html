@@ -547,7 +547,7 @@
     
     <div>
       <a href="#features" class="cta-button">Explore Features</a>
-      <a href="#pricing" class="cta-button secondary">Start Free Trial</a>
+      <a href="startfree.html" class="cta-button secondary">Start Free Trial</a>
     </div>
   </header>
   
@@ -555,10 +555,10 @@
     <div class="nav-container">
       <div class="logo">ShieldMind</div>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -574,7 +574,7 @@
       <h2>🛡️ Secure Your Community Today!</h2>
       <p class="cta-highlight">Your <strong>first server</strong> is protected <strong>free for 30 days</strong>.</p>
       <p>Then only <strong>$0.99/month</strong> per server with premium features!</p>
-      <a href="#pricing" class="cta-button floating">Start Free Trial</a>
+      <a href="startfree.html" class="cta-button floating">Start Free Trial</a>
     </div>
     
     <!-- Features Section -->
@@ -637,7 +637,7 @@
             <li>Community Support</li>
             <li>30-Day Free Trial</li>
           </ul>
-          <button class="cta-button" onclick="goToService(this, 'startfree.html')">Start Free Trial</button>
+          <a href="startfree.html" class="cta-button">Start Free Trial</a>
         </div>
         
         <div class="pricing-card featured">
@@ -651,7 +651,7 @@
             <li>Smart Automation</li>
             <li>Analytics Dashboard</li>
           </ul>
-          <button class="cta-button" onclick="goToService(this, 'subscribe.html')">Subscribe Now</button>
+          <a href="subscribe.html" class="cta-button">Subscribe Now</a>
         </div>
         
         <div class="pricing-card">
@@ -665,7 +665,7 @@
             <li>API Access</li>
             <li>White-label Options</li>
           </ul>
-          <button class="cta-button secondary" onclick="goToService(this, 'contact.html')">Contact Sales</button>
+          <a href="contact.html" class="cta-button secondary">Contact Sales</a>
         </div>
       </div>
     </section>
@@ -694,7 +694,7 @@
           <i class="fas fa-users"></i>
           <h3>Join Our Team</h3>
           <p>Interested in joining our cybersecurity team? Contact us to learn about opportunities with ShieldMind.</p>
-          <button class="cta-button secondary" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Career Opportunities</button>
+          <a href="contact.html" class="cta-button secondary" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Career Opportunities</a>
         </div>
       </div>
     </section>
@@ -710,10 +710,10 @@
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#home">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       
@@ -779,22 +779,6 @@
         }
       });
     });
-
-    // Service navigation function
-    function goToService(button, page) {
-      // Add loading animation
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
-      button.disabled = true;
-      
-      // Simulate API call or processing
-      setTimeout(() => {
-        // In a real implementation, this would redirect to the service page
-        alert(`In a real implementation, this would redirect to: ${page}`);
-        button.innerHTML = originalText;
-        button.disabled = false;
-      }, 1500);
-    }
 
     // Initialize animations on page load
     window.addEventListener("load", () => {
