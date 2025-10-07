@@ -477,86 +477,6 @@
       transition: width 1s ease-in-out;
     }
     
-    /* New Interactive Elements */
-    .demo-container {
-      background: rgba(40, 40, 40, 0.8);
-      border-radius: 15px;
-      padding: 30px;
-      margin: 40px 0;
-      border: 1px solid var(--primary);
-    }
-    
-    .demo-tabs {
-      display: flex;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--gray);
-    }
-    
-    .demo-tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 0.3s;
-    }
-    
-    .demo-tab.active {
-      border-bottom: 3px solid var(--primary);
-      color: var(--primary);
-    }
-    
-    .demo-content {
-      display: none;
-    }
-    
-    .demo-content.active {
-      display: block;
-    }
-    
-    .testimonial-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    
-    .testimonial {
-      background: rgba(50, 50, 50, 0.8);
-      padding: 25px;
-      border-radius: 10px;
-      border-left: 4px solid var(--secondary);
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      margin-top: 15px;
-    }
-    
-    .testimonial-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--primary);
-      margin-right: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: var(--dark);
-    }
-    
-    /* Security Badge */
-    .security-badge {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--dark);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      margin-left: 10px;
-    }
-    
     /* Responsive */
     @media (max-width: 768px) {
       header h1 {
@@ -582,7 +502,7 @@
         margin: 5px 0;
       }
       
-      .card-container, .pricing-container, .testimonial-container {
+      .card-container, .pricing-container {
         grid-template-columns: 1fr;
       }
       
@@ -598,22 +518,18 @@
       .pricing-card.featured {
         transform: none;
       }
-      
-      .demo-tabs {
-        flex-direction: column;
-      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>ShieldMind - Website Protection</h1>
-    <p>Your all-in-one cybersecurity solution designed specifically for web security</p>
+    <p>Your all-in-one cybersecurity solution designed specifically for Website security</p>
     
     <div class="header-stats">
       <div class="stat">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Protected Websites and Computers </div>
+        <div class="stat-number">400+</div>
+        <div class="stat-label">Protected Websites</div>
       </div>
       <div class="stat">
         <div class="stat-number">24/7</div>
@@ -631,7 +547,7 @@
     
     <div>
       <a href="#features" class="cta-button">Explore Features</a>
-      <a href="#pricing" class="cta-button secondary">Start Free Trial</a>
+      <a href="startfree.html" class="cta-button secondary">Start Free Trial</a>
     </div>
   </header>
   
@@ -642,7 +558,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -658,70 +574,8 @@
       <h2>🛡️ Secure Your Website Today!</h2>
       <p class="cta-highlight">Your <strong>first website</strong> is protected <strong>free for 30 days</strong>.</p>
       <p>Then only <strong>$0.99/month</strong> per server with premium features!</p>
-      <a href="#pricing" class="cta-button floating">Start Free Trial</a>
+      <a href="startfree.html" class="cta-button floating">Start Free Trial</a>
     </div>
-    
-    <!-- Interactive Demo Section -->
-    <section class="demo-container">
-      <h2>See ShieldMind in Action</h2>
-      <p>Experience how our protection works with this interactive demo</p>
-      
-      <div class="demo-tabs">
-        <div class="demo-tab active" data-tab="threat">Threat Detection</div>
-        <div class="demo-tab" data-tab="automation">Smart Automation</div>
-        <div class="demo-tab" data-tab="analytics">Analytics</div>
-      </div>
-      
-      <div class="demo-content active" id="threat-demo">
-        <h4>Real-time Threat Detection</h4>
-        <p>Watch how ShieldMind instantly identifies and blocks malicious activity:</p>
-        <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin: 20px 0;">
-          <div id="threat-simulation" style="font-family: monospace; line-height: 1.8;">
-            <div>> Scanning for threats...</div>
-            <div>> Detected suspicious link: http://malicious-phishing.com</div>
-            <div style="color: var(--primary)">> ✅ BLOCKED: Potential phishing attempt</div>
-            <div>> User "Scammer123" joined the server</div>
-            <div style="color: var(--primary)">> ✅ FLAGGED: Known spam account pattern</div>
-            <div>> Monitoring 24/7 protection active</div>
-          </div>
-        </div>
-        <button class="cta-button secondary" onclick="runThreatSimulation()">Run Simulation</button>
-      </div>
-      
-      <div class="demo-content" id="automation-demo">
-        <h4>Smart Automation Features</h4>
-        <p>Our AI-powered automation learns from your website patterns:</p>
-        <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin: 20px 0;">
-          <div style="font-family: monospace; line-height: 1.8;">
-            <div>> Learning server behavior patterns...</div>
-            <div>> Detected raid pattern: Multiple joins in 10 seconds</div>
-            <div style="color: var(--primary)">> ✅ AUTOMATED: Enabled verification mode</div>
-            <div>> Identified spam message pattern</div>
-            <div style="color: var(--primary)">> ✅ AUTOMATED: Applied message rate limiting</div>
-            <div>> Smart automation rules updated</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="demo-content" id="analytics-demo">
-        <h4>Advanced Analytics Dashboard</h4>
-        <p>Monitor your website security status with detailed insights:</p>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0;">
-          <div style="background: rgba(0,255,153,0.1); padding: 15px; border-radius: 8px; text-align: center;">
-            <div style="font-size: 1.5rem; color: var(--primary); font-weight: bold;">98%</div>
-            <div>Protection Score</div>
-          </div>
-          <div style="background: rgba(0,136,204,0.1); padding: 15px; border-radius: 8px; text-align: center;">
-            <div style="font-size: 1.5rem; color: var(--secondary); font-weight: bold;">24</div>
-            <div>Threats Blocked</div>
-          </div>
-          <div style="background: rgba(255,107,107,0.1); padding: 15px; border-radius: 8px; text-align: center;">
-            <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold;">0</div>
-            <div>Active Threats</div>
-          </div>
-        </div>
-      </div>
-    </section>
     
     <!-- Features Section -->
     <section id="features">
@@ -732,19 +586,19 @@
         <div class="card">
           <i class="fas fa-shield-alt"></i>
           <h3>Advanced Threat Detection</h3>
-          <p>We scan and block phishing links, scam bots, and suspicious behavior before they can harm your server.</p>
+          <p>We scan and block bad links, leaks etc. and </p>
         </div>
         
         <div class="card">
           <i class="fas fa-eye"></i>
           <h3>24/7 Monitoring</h3>
-          <p>Our systems monitor your Discord server around the clock so you can focus on your community.</p>
+          <p>Our systems monitor your website around the clock so you can focus on your personal life.</p>
         </div>
         
         <div class="card">
           <i class="fas fa-bell"></i>
           <h3>Real-Time Alerts</h3>
-          <p>Instant notifications for critical events such as raids, spam attacks, or unauthorized access attempts.</p>
+          <p>Instant notifications for critical events such as raids or unauthorized access attempts.</p>
         </div>
         
         <div class="card">
@@ -752,58 +606,12 @@
           <h3>Smart Automation</h3>
           <p>Automated moderation tools that learn from your server's patterns to improve protection over time.</p>
         </div>
-        
-        <div class="card">
-          <i class="fas fa-user-shield"></i>
-          <h3>Role Management</h3>
-          <p>Advanced permission systems to ensure only authorized users can access sensitive channels and features.</p>
-        </div>
+      
         
         <div class="card">
           <i class="fas fa-chart-bar"></i>
           <h3>Analytics Dashboard</h3>
-          <p>Detailed insights into your server's security status, threat attempts, and protection effectiveness.</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section>
-      <h2>Trusted by Builders</h2>
-      <p>See what server administrators are saying about ShieldMind protection</p>
-      
-      <div class="testimonial-container">
-        <div class="testimonial">
-          <p>"ShieldMind saved our company of 5,000 members from a coordinated raid. The automated protection kicked in instantly and prevented any damage."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">MJ</div>
-            <div>
-              <strong>Maria Johnson</strong><br>
-              <span style="color: var(--light-gray); font-size: 0.9rem;">Gaming Community Admin</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <p>"The analytics dashboard gives me peace of mind. I can see exactly what threats are being blocked and how our security is improving over time."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">AS</div>
-            <div>
-              <strong>Alex Smith</strong><br>
-              <span style="color: var(--light-gray); font-size: 0.9rem;">Tech Server Owner</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <p>"For less than $1 per month, the value is incredible. We tried other security options but ShieldMind's threat detection is simply superior."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">TR</div>
-            <div>
-              <strong>Taylor Roberts</strong><br>
-              <span style="color: var(--light-gray); font-size: 0.9rem;">Education Server Moderator</span>
-            </div>
-          </div>
+          <p>Detailed insights into your websites security, threat attempts, and protection effectiveness.</p>
         </div>
       </div>
     </section>
@@ -824,7 +632,7 @@
             <li>Community Support</li>
             <li>30-Day Free Trial</li>
           </ul>
-          <button class="cta-button" onclick="goToService(this, 'startfree.html')">Start Free Trial</button>
+          <a href="startfree.html" class="cta-button">Start Free Trial</a>
         </div>
         
         <div class="pricing-card featured">
@@ -838,7 +646,7 @@
             <li>Smart Automation</li>
             <li>Analytics Dashboard</li>
           </ul>
-          <button class="cta-button" onclick="goToService(this, 'subscribe.html')">Subscribe Now</button>
+          <a href="subscribe.html" class="cta-button">Subscribe Now</a>
         </div>
         
         <div class="pricing-card">
@@ -852,7 +660,7 @@
             <li>API Access</li>
             <li>White-label Options</li>
           </ul>
-          <button class="cta-button secondary" onclick="goToService(this, 'contact.html')">Contact Sales</button>
+          <a href="contact.html" class="cta-button secondary">Contact Sales</a>
         </div>
       </div>
     </section>
@@ -881,7 +689,7 @@
           <i class="fas fa-users"></i>
           <h3>Join Our Team</h3>
           <p>Interested in joining our cybersecurity team? Contact us to learn about opportunities with ShieldMind.</p>
-          <button class="cta-button secondary" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Career Opportunities</button>
+          <a href="contact.html" class="cta-button secondary" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">Career Opportunities</a>
         </div>
       </div>
     </section>
@@ -900,7 +708,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       
@@ -966,52 +774,6 @@
         }
       });
     });
-
-    // Service navigation function
-    function goToService(button, page) {
-      // Add loading animation
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
-      button.disabled = true;
-      
-      // Simulate API call or processing
-      setTimeout(() => {
-        // In a real implementation, this would redirect to the service page
-        alert(`In a real implementation, this would redirect to: ${page}`);
-        button.innerHTML = originalText;
-        button.disabled = false;
-      }, 1500);
-    }
-
-    // Demo tab functionality
-    document.querySelectorAll('.demo-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active class from all tabs and content
-        document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.demo-content').forEach(c => c.classList.remove('active'));
-        
-        // Add active class to clicked tab
-        tab.classList.add('active');
-        
-        // Show corresponding content
-        const tabId = tab.getAttribute('data-tab');
-        document.getElementById(`${tabId}-demo`).classList.add('active');
-      });
-    });
-
-    // Threat simulation function
-    function runThreatSimulation() {
-      const simulation = document.getElementById('threat-simulation');
-      simulation.innerHTML = `
-        <div>> Scanning for threats...</div>
-        <div>> Detected suspicious link: http://malicious-phishing.com</div>
-        <div style="color: var(--primary)">> ✅ BLOCKED: Potential phishing attempt</div>
-        <div>> User "Scammer123" joined the server</div>
-        <div style="color: var(--primary)">> ✅ FLAGGED: Known spam account pattern</div>
-        <div>> Monitoring 24/7 protection active</div>
-        <div style="margin-top: 10px; color: var(--secondary)">> 🛡️ ShieldMind protection active - All threats neutralized</div>
-      `;
-    }
 
     // Initialize animations on page load
     window.addEventListener("load", () => {
