@@ -563,7 +563,7 @@
     </div>
   </footer>
 
-  <script>
+ <script>
     let selectedService = '';
     
     function selectService(service) {
@@ -588,7 +588,7 @@
       });
     }
     
-    // Form submission
+    // Form submission - GERÇEK GÖNDERİM
     document.getElementById('trialForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -603,41 +603,34 @@
       
       const serviceName = service === 'web-security' ? 'Web Security Service' : 'Discord Server Protection';
       
-      // Email simulation
-      const emailBody = `
-        FREE TRIAL REQUEST - ${serviceName}
+      // GERÇEK FORM GÖNDERİMİ - EmailJS ile
+      emailjs.send("service_your_service_id", "template_your_template_id", {
+        name: name,
+        email: email,
+        website: website,
+        company: company,
+        message: message,
+        service: serviceName,
+        subject: "New Free Trial Request: " + serviceName
+      })
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        // Başarı mesajını göster
+        document.getElementById('successMessage').classList.add('show');
+        // Formu temizle
+        document.getElementById('trialForm').reset();
         
-        Name: ${name}
-        Email: ${email}
-        Website/Server: ${website}
-        Company: ${company || 'Not specified'}
-        Additional Requirements: ${message || 'None'}
-        
-        Service: ${serviceName}
-        
-        This is a free trial request from the ShieldMind website.
-      `;
-      
-      // Create real email link
-      const mailtoLink = `mailto:shieldmindcompany@gmail.com?subject=${encodeURIComponent('Free Trial Request: ' + serviceName)}&body=${encodeURIComponent(emailBody)}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
-      document.getElementById('successMessage').classList.add('show');
-      
-      // Clear form
-      this.reset();
-      
-      // Hide success message after 8 seconds and redirect
-      setTimeout(() => {
-        document.getElementById('successMessage').classList.remove('show');
-        // Redirect to home page after showing success
+        // 8 saniye sonra başarı mesajını gizle ve yönlendir
         setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 2000);
-      }, 8000);
+          document.getElementById('successMessage').classList.remove('show');
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+        }, 8000);
+      }, function(error) {
+        console.log('FAILED...', error);
+        alert('There was an error sending your free trial request. Please try again or contact us directly.');
+      });
     });
     
     // Initialize animations
