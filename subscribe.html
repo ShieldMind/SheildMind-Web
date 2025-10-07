@@ -660,7 +660,7 @@
       });
     }
     
-    // Form submission
+    // Form submission - GERÇEK GÖNDERİM
     document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -688,44 +688,36 @@
           break;
       }
       
-      // Email simulation
-      const emailBody = `
-        SUBSCRIPTION REQUEST - ${serviceName}
+      // GERÇEK FORM GÖNDERİMİ - EmailJS ile
+      emailjs.send("service_your_service_id", "template_your_template_id", {
+        name: name,
+        email: email,
+        website: website,
+        billing: billing,
+        payment: payment,
+        message: message,
+        service: serviceName,
+        plan: plan,
+        subject: "New Subscription Request: " + serviceName
+      })
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        // Başarı mesajını göster
+        document.getElementById('successMessage').classList.add('show');
+        // Formu temizle
+        document.getElementById('subscriptionForm').reset();
         
-        Name: ${name}
-        Email: ${email}
-        Website/Server: ${website}
-        Billing Cycle: ${billing}
-        Payment Method: ${payment}
-        Additional Notes: ${message || 'None'}
-        
-        Service: ${serviceName}
-        Plan: ${plan}
-        
-        This is a subscription request from the ShieldMind website.
-        Please send payment instructions to complete the subscription.
-      `;
-      
-      // Create real email link
-      const mailtoLink = `mailto:shieldmindcompany@gmail.com?subject=${encodeURIComponent('Subscription Request: ' + serviceName)}&body=${encodeURIComponent(emailBody)}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
-      document.getElementById('successMessage').classList.add('show');
-      
-      // Clear form
-      this.reset();
-      
-      // Hide success message after 8 seconds and redirect
-      setTimeout(() => {
-        document.getElementById('successMessage').classList.remove('show');
-        // Redirect to home page after showing success
+        // 8 saniye sonra başarı mesajını gizle ve yönlendir
         setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 2000);
-      }, 8000);
+          document.getElementById('successMessage').classList.remove('show');
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+        }, 8000);
+      }, function(error) {
+        console.log('FAILED...', error);
+        alert('There was an error sending your subscription. Please try again or contact us directly.');
+      });
     });
     
     // Initialize animations
