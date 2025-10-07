@@ -432,6 +432,13 @@
       }
     }
   </style>
+  <!-- Diğer head içeriği -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("v8gutSOtV7sfJ0S-r"); // EmailJS'den alacağınız public key
+    })();
+  </script>
 </head>
 <body>
   <header>
@@ -517,7 +524,7 @@
         </div>
         
         <div class="form-group">
-          <label for="company">Company/Organization (Optional)</label>
+          <label for="company">Company/Organization (Optional) and Phone Number (Required)</label>
           <input type="text" id="company" name="company">
         </div>
         
@@ -604,7 +611,7 @@
       const serviceName = service === 'web-security' ? 'Web Security Service' : 'Discord Server Protection';
       
       // GERÇEK FORM GÖNDERİMİ - EmailJS ile
-      emailjs.send("service_your_service_id", "template_your_template_id", {
+      emailjs.send("service_jxtzqqi", "template_1hbmbt8", {
         name: name,
         email: email,
         website: website,
